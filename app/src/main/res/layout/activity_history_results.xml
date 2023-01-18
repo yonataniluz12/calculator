@@ -23,19 +23,28 @@
         <TextView
             android:id="@+id/tv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:text="TextView"
+            android:textSize="20sp" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="38dp" />
+            android:layout_height="0dp"
+            android:layout_weight="3" />
 
         <Button
             android:id="@+id/btn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="3"
             android:onClick="go"
             android:text="Credits" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="6" />
 
     </LinearLayout>
 

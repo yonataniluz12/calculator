@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="plus"
+            android:onClick="go1"
             android:text="+" />
 
         <Space
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="minus"
+            android:onClick="go2"
             android:text="-" />
 
         <Space
@@ -64,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="kaful"
+            android:onClick="go3"
             android:text="x" />
 
         <Space
@@ -77,7 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="helkey"
+            android:onClick="go4"
             android:text="/" />
 
         <Space
@@ -106,8 +106,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="mehika"
-            android:text="A/C" />
+            android:onClick="go5"
+            android:text="=" />
 
         <Space
             android:layout_width="3dp"
@@ -119,8 +119,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="shave"
-            android:text="=" />
+            android:onClick="go6"
+            android:text="A/C" />
 
         <Space
             android:layout_width="3dp"
@@ -148,8 +148,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="histori"
-            android:text="credits"
-            app:iconTint="@color/teal_200" />
+            android:text="Credits"
+            tools:ignore="UsingOnClickInXml" />
 
         <Space
             android:layout_width="143dp"

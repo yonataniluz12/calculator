@@ -12,7 +12,6 @@ import android.widget.TextView;
 public class History_results extends AppCompatActivity {
     Button btn;
     TextView tv;
-    Intent hi = getIntent();
     double x;
 
     @SuppressLint("SetTextI18n")
@@ -22,12 +21,14 @@ public class History_results extends AppCompatActivity {
         setContentView(R.layout.activity_history_results);
         btn = findViewById(R.id.btn);
         tv = findViewById(R.id.tv);
+        Intent hi = getIntent();
         x = hi.getIntExtra("a", -999);
         tv.setText("The final result is: " + x);
     }
 
 
     public void go(View view) {
-        finish();
+        Intent back = new Intent(this, MainActivity.class);
+        startActivity(back);
     }
 }

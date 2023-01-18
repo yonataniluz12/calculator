@@ -13,9 +13,8 @@ public class MainActivity extends AppCompatActivity {
     EditText etnd;
     double num = 0.0;
     double num2 =  0.0;
-    Intent si = new Intent(this,History_results.class);
-    double sum = 0.0;
     String str;
+    int op = -1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,143 +28,112 @@ public class MainActivity extends AppCompatActivity {
         btn7 = findViewById(R.id.btn7);
         etnd = findViewById(R.id.etnd);
     }
-    public boolean Input_test(String str){
-        if(str == "+" ){
-            if(str.equals("-")){
-                if(str == "x"){
-                    if(str.equals("/")){
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
-    }
-    public static double opp(double num, int op){
-        double sum = 1;
-        if(op == 0){
-            sum = num;
-            return sum;
-        }
-        if(op == 1){
-            sum = sum-1 + num;
-            return sum;
-        }
-        if(op == 2){
-            sum = sum-1 - num;
-            return sum;
-        }
-        if(op == 3){
-            sum = sum * num;
-            return sum;
-        }
-        if(op == 4){
-            sum = sum / num;
-            return sum;
-        }
-        return 0;
-    }
-    int op = 0;
-    public void input(View view) {
-        String str = etnd.getText().toString();
-        etnd.setHint(str);
-        num = Double.parseDouble(str);
-        if (op == 0) {
-            opp(num, op);
-        }
-    }
-    public void plus(View view) {
-        str = etnd.getText().toString();
-        if(Input_test(str)) {
+
+    public boolean isNum(){
+        str= etnd.getText().toString();
+        etnd.setText("");
+        if (str.matches("-?\\d+(\\.\\d+)?")) {
             num2 = Double.parseDouble(str);
-            if (op == 0) {
-                sum = num2;
-            } else {
-                opp(num2, op);
+            return true;
+        }
+        return false;
+    }
+    public void arithmetic_operations(){
+        if (op == 1) {num += num2;}
+        else if (op == 2) {num -= num2;}
+        else if (op == 3) {num *= num2;}
+        else if (op == 4) {num /= num2;}
+    }
+    public void go1(View view) {
+        if (op != 5) {
+            if (isNum()) {
+                if (op != -1)
+                    arithmetic_operations();
+                else
+                    num = num2;
+                etnd.setHint("" + num + "+");
+                op=1;
             }
+        }
+        else if(str=="") {
+            etnd.setText("");
+            etnd.setHint(""+num+"+");
             op = 1;
-            etnd.setText(" ");
-            etnd.setHint(str + "  +");
         }
-        else {
-            etnd.setHint("ERROR");
-        }
-    }
 
-    public void minus(View view) {
-        str = etnd.getText().toString();
-        if(Input_test(str)) {
-            num2 = Double.parseDouble(str);
-            if (op == 0) {
-                sum = num2;
-            } else {
-                opp(num2, op);
+    }
+    public void go2(View view) {
+        if (op != 5) {
+            if (isNum()) {
+                if (op != -1)
+                    arithmetic_operations();
+                else
+                    num = num2;
+                etnd.setHint("" + num + "-");
+                op=2;
             }
+        }
+        else if(str=="") {
+            etnd.setText("");
+            etnd.setHint(""+num+"-");
             op = 2;
-            etnd.setText(" ");
-            etnd.setHint(str + "  -");
-        }
-        else {
-            etnd.setHint("ERROR");
         }
     }
-
-
-    public void kaful(View view) {
-        str = etnd.getText().toString();
-        if(Input_test(str)) {
-            num2 = Double.parseDouble(str);
-            if (op == 0) {
-                sum = num2;
-            } else {
-                opp(num2, op);
+    public void go3(View view) {
+        if (op != 5) {
+            if (isNum()) {
+                if (op != -1)
+                    arithmetic_operations();
+                else
+                    num = num2;
+                etnd.setHint("" + num + "*");
+                op=3;
             }
+        }
+        else if(str=="") {
+            etnd.setText("");
+            etnd.setHint(""+num+"*");
             op = 3;
-            etnd.setText(" ");
-            etnd.setHint(str + "x");
-        }
-        else {
-            etnd.setHint("ERROR");
         }
     }
-
-    public void helkey(View view) {
-        str = etnd.getText().toString();
-        if(Input_test(str)) {
-            num2 = Double.parseDouble(str);
-            if (op == 0) {
-                sum = num2;
-            } else {
-                opp(num2, op);
+    public void go4(View view) {
+        if (op != 5) {
+            if (isNum()) {
+                if (op != -1)
+                    arithmetic_operations();
+                else
+                    num = num2;
+                etnd.setHint("" + num + "/");
+                op = 4;
             }
+        }
+        else if(str=="") {
+            etnd.setText("");
+            etnd.setHint(""+ num+"/");
             op = 4;
-            etnd.setText(" ");
-            etnd.setHint(str + "/");
-        }
-        else {
-            etnd.setHint("ERROR");
         }
     }
-
-    public void mehika(View view) {
-        etnd.setHint("0");
-        sum =0;
-        op = 19;
-    }
-
-    public void shave(View view) {
-        if(Input_test(str)){
-            num2 = Double.parseDouble(str);
-            etnd.setText(" ");
-            etnd.setText(str);
-        }
-        else {
-            etnd.setHint("ERROR");
+    public void go5(View view) {
+        if (isNum()) {
+            if (op != -1) {
+                if (op != 5)
+                    arithmetic_operations();
+            }
+            else
+                num = num2;
+            etnd.setHint(""+num);
+            op = 5;
+            str = "";
         }
     }
-
+    public void go6(View view) {
+        op=-1; num=0;
+        etnd.setText("");
+        etnd.setHint("");
+    }
     public void histori(View view) {
-        si.putExtra("a",sum);
+        Intent si = new Intent(this, History_results.class);
+        si.putExtra("a",num);
         startActivity(si);
     }
 }
